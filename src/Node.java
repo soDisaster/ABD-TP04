@@ -7,7 +7,7 @@ public class Node {
 	Node previous;
 	boolean root;
 	
-	public Node(Node[] c, Integer[] v, Node n, Node p, boolean r){
+	public Node(Node[] c, Integer[] v, Node n, Node p, boolean r) {
 		
 		this.children = c;
 		this.values = v;
@@ -16,6 +16,25 @@ public class Node {
 		this.root = r;
 	}
 	
+	public Node[] getChildren() {
+		return this.children;
+	}
+	
+	public Integer[] getValues() {
+		return this.values;
+	}
+	
+	public Node getNext() {
+		return this.next;
+	}
+	
+	public Node getPrevious() {
+		return this.previous;
+	}
+	
+	public boolean isRoot() {
+		return this.root;
+	}
 
 
 }
