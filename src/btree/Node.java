@@ -14,6 +14,11 @@ public class Node {
 	/* ========= */
 	
 	/**
+	 * Indice du B+-Tree
+	 */
+	protected int indice;
+	
+	/**
 	 * Pointeurs sur les noeuds fils du noeud courant
 	 */
 	protected Node[] children;
@@ -42,7 +47,7 @@ public class Node {
 	/* CONSTRUCTEURS */
 	/* ============= */
 	
-	public Node(boolean r) {
+	public Node(boolean r){
 		this.children = new Node[5];
 		this.values = new Integer[5 - 1];
 		this.root = r;
@@ -62,7 +67,8 @@ public class Node {
 	 * @param r
 	 * 			Racine du B+-Tree
 	 */
-	public Node(Node[] c, Integer[] v, Node n, Node p, boolean r) {
+	public Node(Node[] c, Integer[] v, Node n, Node p, boolean r){
+		this.indice = 4;
 		this.children = c;
 		this.values = v;
 		this.next = n;
@@ -74,19 +80,19 @@ public class Node {
 	/* METHODES */
 	/* ======== */
 	
-	public Node[] getChildren() {
+	public Node[] getChildren(){
 		return this.children;
 	}
 	
-	public Integer[] getValues() {
+	public Integer[] getValues(){
 		return this.values;
 	}
 	
-	public Node getNext() {
+	public Node getNext(){
 		return this.next;
 	}
 	
-	public Node getPrevious() {
+	public Node getPrevious(){
 		return this.previous;
 	}
 	
@@ -95,7 +101,7 @@ public class Node {
 	 *
 	 * @return true si le noeud est la racine du B+-Tree, false sinon
 	 */
-	public boolean isRoot() {
+	public boolean isRoot(){
 		return this.root;
 	}
 
@@ -116,4 +122,16 @@ public class Node {
 		
 		return empty;
 	}
+	
+	public void insert(int i){
+	}
+	
+	public void remove(int i){
+		
+	}
+	
+	public void search(int i){
+		
+	}
+	
 }
