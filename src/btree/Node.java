@@ -90,10 +90,20 @@ public class Node {
 		return this.previous;
 	}
 	
+	/**
+	 * Retourne vrai si le noeud courant est la racine du B+-Tree
+	 *
+	 * @return true si le noeud est la racine du B+-Tree, false sinon
+	 */
 	public boolean isRoot() {
 		return this.root;
 	}
 
+	/**
+	 * Retourne vrai si le noeud courant ne contient pas de pointeur vers des noeuds fils, et qu'il est donc une feuille du B+-Tree
+	 *
+	 * @return true si le noeud est une feuille du B+-Tree, false sinon
+	 */
 	public boolean isLeaf() {
 		boolean empty = true;
 		
