@@ -38,9 +38,17 @@ public class Node {
 	 */
 	boolean root;
 	
-	/* ============ */
-	/* CONSTRUCTEUR */
-	/* ============ */
+	/* ============= */
+	/* CONSTRUCTEURS */
+	/* ============= */
+	
+	public Node(boolean r) {
+		this.children = null;
+		this.values = null;
+		this.next = null;
+		this.previous = null;
+		this.root = r;
+	}
 	
 	/**
 	 * Constructeur de la classe Node
