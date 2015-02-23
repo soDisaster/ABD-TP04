@@ -43,10 +43,8 @@ public class Node {
 	/* ============= */
 	
 	public Node(boolean r) {
-		this.children = null;
-		this.values = null;
-		this.next = null;
-		this.previous = null;
+		this.children = new Node[5];
+		this.values = new Integer[5 - 1];
 		this.root = r;
 	}
 	
