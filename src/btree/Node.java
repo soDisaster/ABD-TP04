@@ -94,5 +94,16 @@ public class Node {
 		return this.root;
 	}
 
-
+	public boolean isLeaf() {
+		boolean empty = true;
+		
+		for (Object ob : this.getChildren()) {
+			if (ob != null) {
+				empty = false;
+				break;
+			}
+		}
+		
+		return empty;
+	}
 }
