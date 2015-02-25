@@ -209,11 +209,9 @@ public class Node {
 			
 			/* Si le noeud est une feuille du B+-Tree */
 			if (this.isLeaf()) {
-				
 				return this;
 			} else {
-				
-				return null;
+				return this.getChildren()[i + 1].search(k);
 			}
 			
 		}
@@ -223,11 +221,16 @@ public class Node {
 
 			/* Si le noeud est une feuille du B+-Tree */
 			if (this.isLeaf()) {
-				
+				System.out.println("ERREUR: Clé non trouvé dans l'arbre");
 				return null;
 			} else {
+				int j = 0;
 				
-				return null;
+				while (k >= this.getValues()[j]) {
+					 j++;
+				}
+
+				return this.getChildren()[j].search(k);
 			}
 			
 		}
