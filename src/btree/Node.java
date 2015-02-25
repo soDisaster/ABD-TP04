@@ -129,7 +129,18 @@ public class Node {
 		return empty;
 	}
 	
-	public void insert(int i){
+	public void insert(int k){
+		boolean present = false;
+		for(int i = 0; i < this.getValues().length; i++){
+			if(k == this.values[i])
+				present = true;
+		}
+		if(present){
+			if(this.isLeaf())
+				System.out.println("Pas de duplication possible");
+			else
+				Node n = new Node(c, v, n, p, r);
+		}
 	
 	}
 	
