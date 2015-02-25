@@ -82,6 +82,10 @@ public class Node {
 	/* METHODES */
 	/* ======== */
 	
+	public int getIndice() {
+		return this.indice;
+	}
+	
 	public Node[] getChildren(){
 		return this.children;
 	}
@@ -144,33 +148,35 @@ public class Node {
 		
 	}
 	
-	public Node search(int k, Node node) {
+	public Node search(int k) {
 
 		/* Si k est trouvé dans les valeurs de node, i vaut son index dans le tableau */
 		/* Si k n'est pas trouvé, i vaut -1 */
-		int i = Arrays.asList(node.getValues()).indexOf(k);
+		int i = Arrays.asList(this.getValues()).indexOf(k);
 		
-		/* Si le noeud est une feuille du B+-Tree */
-		if (node.isLeaf()) {
+		/* Si k est trouvé dans les valeurs du noeud */
+		if (i != -1) {
 			
-			if (i != -1) {
-				/* Le noeud est une feuille et la valeur cherchée appartient aux valeurs de ce noeud */
-				return node;
+			/* Si le noeud est une feuille du B+-Tree */
+			if (this.isLeaf()) {
+				
+				return this;
 			} else {
-				/* Le noeud est une feuille mais la valeur cherchée n'appartient pas aux valeurs de ce noeud */
+				
 				return null;
 			}
 			
 		}
 		
-		/* Si au contraire le noeud est un noeud interne du B+-Tree */
+		/* Si au contraire k n'est pas présent dans les valeurs du noeud */
 		else {
 
-			if (Arrays.asList(node.getValues()).contains(k)) {
-				/* Le noeud est un noeud interne et la valeur cherchée appartient aux valeurs de ce noeud */
+			/* Si le noeud est une feuille du B+-Tree */
+			if (this.isLeaf()) {
+				
 				return null;
 			} else {
-				/* Le noeud est un noeud interne mais la valeur cherchée n'appartient pas aux valeurs de ce noeud */
+				
 				return null;
 			}
 			
