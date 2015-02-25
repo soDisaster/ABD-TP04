@@ -82,6 +82,10 @@ public class Node {
 	/* METHODES */
 	/* ======== */
 	
+	public int getIndice() {
+		return this.indice;
+	}
+	
 	public Node[] getChildren(){
 		return this.children;
 	}
