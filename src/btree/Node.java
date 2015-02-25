@@ -102,6 +102,26 @@ public class Node {
 		return this.previous;
 	}
 	
+	public boolean isEmpty(){
+		boolean rtr = true;
+		for(int i=0; i < this.values.length; i++){
+			if(this.values[i] != -1){
+				rtr = false;
+			}
+		}
+		return rtr;
+	}
+	
+	public boolean isNotFull(){
+		boolean rtr = false;
+		for(int i=0; i < this.values.length; i++){
+			if(this.values[i] == -1){
+				rtr = true;
+			}
+		}
+		return rtr;
+	}
+	
 	/**
 	 * Retourne vrai si le noeud courant est la racine du B+-Tree
 	 *
@@ -130,22 +150,52 @@ public class Node {
 	}
 	
 	public void insert(int k){
+		int i_child = -1;
 		boolean present = false;
 		for(int i = 0; i < this.getValues().length; i++){
-			if(k == this.values[i])
+			if(k == this.values[i]){
 				present = true;
+				i_child = i;
+			}
 		}
 		if(present){
 			if(this.isLeaf())
 				System.out.println("Pas de duplication possible");
 			else
-				Node n = new Node(c, v, n, p, r);
+			{
+					this.getChildren()[i_child].insert(k);
+			}
+		}
+		else{
+			if(this.isLeaf()){
+				for(int i = 0; i < this.values.length; i++){
+					if(this.values[i] == -1){
+						this.insert(k);
+					}
+					else{
+						if(this.isRoot() == false){
+						
+						}
+					}
+						
+				}
+			}
+			else{
+				if(this.isNotFull()){
+					for(int i = 0; i < this.values.length; i++){
+						if(k <= this.values[i])
+							this.getChildren()[i].insert(k);
+					}
+				}
+			}
 		}
 	
 	}
 	
 	public void remove(int i){
-		
+		if(this.isLeaf()){
+			
+		}
 	}
 	
 	public Node search(int k) {
