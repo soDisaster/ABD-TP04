@@ -40,6 +40,8 @@ public class Node {
 	 */
 	Node previous;
 	
+	Node parent;
+	
 	/**
 	 * Racine du B+-Tree
 	 */
@@ -76,6 +78,7 @@ public class Node {
 		this.next = n;
 		this.previous = p;
 		this.root = r;
+		this.parent = null;
 	}
 	
 	/* ======== */
@@ -100,6 +103,10 @@ public class Node {
 	
 	public Node getPrevious(){
 		return this.previous;
+	}
+	
+	public Node getParent(){
+		return this.parent;
 	}
 	
 	public boolean isEmpty(){
@@ -168,17 +175,19 @@ public class Node {
 		}
 		else{
 			if(this.isLeaf()){
-				for(int i = 0; i < this.values.length; i++){
-					if(this.values[i] == -1){
+					if(this.isNotFull()){
 						this.insert(k);
 					}
 					else{
-						if(this.isRoot() == false){
-						
-						}
+						Integer[] values2 = null;
+						for(int i = this.getValues().length/2; i < this.values.length; i++){
+							values2[i] = this.values[i];
+							this.values[i] = -1;
+						}	
+						Node n2 = new Node(null, values2, null, null, false);
 					}
 						
-				}
+				
 			}
 			else{
 				if(this.isNotFull()){
