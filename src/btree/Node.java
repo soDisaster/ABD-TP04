@@ -28,7 +28,7 @@ public class Node {
 	/**
 	 * Valeurs des clés du noeud courant
 	 */
-	protected Integer [] values;
+	protected Integer[] values;
 	
 	/**
 	 * Pointeur sur le noeud suivant
@@ -40,6 +40,9 @@ public class Node {
 	 */
 	Node previous;
 	
+	/**
+	 * Pointeur sur le noeud parent
+	 */
 	Node parent;
 	
 	/**
@@ -52,11 +55,27 @@ public class Node {
 	/* ============= */
 	
 	public Node(boolean r){
-		this.children = new Node[5];
-		this.values = new Integer[5 - 1];
+		this.indice = 8;
+		this.children = new Node[this.indice];
+		this.values = new Integer[this.indice - 1];
+		Arrays.fill(values, -1);
+		this.next = null;
+		this.previous = null;
 		this.root = r;
+		this.parent = null;
 	}
-	
+
+	public Node(Node parent, boolean r){
+		this.indice = 8;
+		this.children = new Node[this.indice];
+		this.values = new Integer[this.indice - 1];
+		Arrays.fill(values, -1);
+		this.next = null;
+		this.previous = null;
+		this.root = r;
+		this.parent = null;
+	}	
+
 	/**
 	 * Constructeur de la classe Node
 	 * 
@@ -72,6 +91,16 @@ public class Node {
 	 * 			Racine du B+-Tree
 	 */
 	public Node(Node[] c, Integer[] v, Node n, Node p, boolean r){
+		this.indice = 4;
+		this.children = c;
+		this.values = v;
+		this.next = n;
+		this.previous = p;
+		this.root = r;
+		this.parent = null;
+	}
+
+	public Node(Node[] c, Integer[] v, Node n, Node p, Node parent, boolean r){
 		this.indice = 4;
 		this.children = c;
 		this.values = v;
