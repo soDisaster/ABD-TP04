@@ -245,4 +245,33 @@ public class Node {
 		}
 	}
 	
+	public void display() {
+		String s = "|";
+		
+		for (int i = 0; i < this.getValues().length; i++) {
+			String tmp = " " + this.getValues()[i] + " |";
+			s += tmp;
+		}
+		
+		char[] lineArray = new char[s.length()];
+		Arrays.fill(lineArray, '-');
+		String lineString = new String(lineArray);
+		
+		System.out.println(lineString);
+		System.out.println(s);
+		System.out.println(lineString);
+	}
+	
+	public void displayAll() {
+		this.display();
+		
+		for (int i = 0; i < this.getChildren().length; i++) {
+			Node node = this.getChildren()[i];
+			
+			if (node != null) {
+				node.displayAll();
+			}
+		}
+	}
+	
 }
