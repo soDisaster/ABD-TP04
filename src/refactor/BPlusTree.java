@@ -365,28 +365,6 @@ public class BPlusTree {
 		}
 		
 		/**
-		 * Retourne l'indice supposé de la clé, si elle présente, dans le noeud
-		 * Reourne -1 si la clé ne peut pas être présente dans le noeud
-		 * 
-		 * @param key
-		 * 			Clé à chercher dans le noeud
-		 * @return l'indice supposé de la clé, -1 sinon
-		 */
-		public int indexOfKey(int key) {
-			int i = 0;
-			
-			while (i < this.numberKeys && key > this.keys[i]) {
-				i++;
-			}
-			
-			if (i < this.numberKeys && key == this.keys[i]) {
-				return i;
-			} else {
-				return -1;
-			}
-		}
-		
-		/**
 		 * Affiche le contenu du noeud
 		 */
 		public void display() {
