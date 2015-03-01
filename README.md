@@ -12,18 +12,17 @@ Description
 
 L'objectif de ce TP est d'implémenter des classes Java pour gérer les opérations de base sur un arbre B+-Tree.
 
-- **OK :** Implémentation de l’algorithme de recherche d'une clé dans l'arbre.
+1. **OK :** Implémentation de l’algorithme de recherche d'une clé dans l'arbre.
 
 Deux méthodes de recherche sont disponibles sur les instances de `BPlusTree` :
+  - `search(int key)` retourne la valeur associée à la clé passée en paramètre.  
+  - `searchNode(int key)` retourne le noeud qui contient la clé passée en paramètre.  
 
-    - `search(int key)` retourne la valeur associée à la clé passée en paramètre.  
-    - `searchNode(int key)` retourne le noeud qui contient la clé passée en paramètre.  
-
-- **OK :** Implémentation de l’algorithme d'insertion d'une clé dans l'arbre.
+2. **OK :** Implémentation de l’algorithme d'insertion d'une clé dans l'arbre.
 
 La méthode `add(int key, Object object)` permet d'insérer dans le B+-Tree une clé `key` associée à une valeur `object`.
 
-- Implémentation de l’algorithme de suppression d'une clé dans l'arbre.
+3. Implémentation de l’algorithme de suppression d'une clé dans l'arbre.
 
 La suppression d'une clé dans l'arbre n'a pas été implémentée.
 
