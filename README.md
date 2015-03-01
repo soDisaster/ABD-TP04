@@ -16,8 +16,8 @@ L'objectif de ce TP est d'implémenter des classes Java pour gérer les opérati
 
 Deux méthodes de recherche sont disponibles sur les instances de `BPlusTree` :
 
-	- `search(int key)` retourne la valeur associée à la clé passée en paramètre.  
-	- `searchNode(int key)` retourne le noeud qui contient la clé passée en paramètre.  
+- `search(int key)` retourne la valeur associée à la clé passée en paramètre.  
+- `searchNode(int key)` retourne le noeud qui contient la clé passée en paramètre.  
 
 - **OK :** Implémentation de l’algorithme d'insertion d'une clé dans l'arbre.
 
