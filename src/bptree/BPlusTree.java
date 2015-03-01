@@ -1,4 +1,4 @@
-package refactor;
+package bptree;
 
 import java.util.Arrays;
 
@@ -143,7 +143,7 @@ public class BPlusTree {
 
 			/* Split rootNode et ajoute sa clé centrale aux clés de newRootNode */
 			splitChildNode(newRootNode, 0, rootNode);
-
+			
 			/* Ajoute la clé au B+-Tree avec cette nouvelle racine */
 			insertIntoNonFullNode(newRootNode, key, object);
 		} else {
@@ -172,7 +172,7 @@ public class BPlusTree {
 		Node newNode = new Node();
 		newNode.isLeafNode = node.isLeafNode;
 		newNode.numberKeys = this.degree / 2;
-
+		
 		/*
 		 * Copie les degré/2 derniers éléments du noeud passé en paramètre dans
 		 * newNode
@@ -187,8 +187,8 @@ public class BPlusTree {
 		 * pointeurs de childNodes dans newNode
 		 */
 		if (!newNode.isLeafNode) {
-			for (int j = 0; j < (this.degree / 2) + 1; j++) {
-				newNode.childNodes[j] = node.childNodes[j + (this.degree / 2) - 1];
+			for (int j = 0; j < (this.degree / 2); j++) {
+				newNode.childNodes[j] = node.childNodes[j + (this.degree / 2)];
 			}
 			for (int j = (this.degree / 2); j <= node.numberKeys; j++) {
 				node.childNodes[j] = null;
@@ -201,7 +201,7 @@ public class BPlusTree {
 			newNode.nextNode = node.nextNode;
 			node.nextNode = newNode;
 		}
-
+		
 		/* Suppression des degré/2 derniers éléments du noeud après copie */
 		for (int j = (this.degree / 2) - 1; j < node.numberKeys; j++) {
 			node.keys[j] = 0;
@@ -213,9 +213,9 @@ public class BPlusTree {
 		for (int j = parentNode.numberKeys; j >= i + 1; j--) {
 			parentNode.childNodes[j + 1] = parentNode.childNodes[j];
 		}
-
+		
 		parentNode.childNodes[i + 1] = newNode;
-
+		
 		for (int j = parentNode.numberKeys - 1; j >= i; j--) {
 			parentNode.keys[j + 1] = parentNode.keys[j];
 			parentNode.values[j + 1] = parentNode.values[j];
@@ -277,6 +277,7 @@ public class BPlusTree {
 	}
 
 	private void delete(Node node, int key) {
+		System.out.println("La suppression d'une clé du B+-Tree n'est pas implémentée");
 		return;
 	}
 
