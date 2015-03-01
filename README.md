@@ -34,6 +34,8 @@ Une classe interne `Node` est présente pour la gestion des noeuds (internes ou 
 
 Une classe `Main.java` est fournie pour tester l'implémentation.
 
+L'arbre peut être affiché avec la méthode `display()`, qui se contente de lister les noeuds, ou `display2()` qui essaye de représenter la structure de l'arbre en indentant les noeuds de celui-ci.
+
 Utilisation
 -----------
 
